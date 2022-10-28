@@ -1,5 +1,4 @@
 ---
-title: Tools
 hide:
     - toc
     - footer
@@ -9,4 +8,4 @@ hide:
 
 #
 
-::: skyant.tools
+::: skyant.tools.auth

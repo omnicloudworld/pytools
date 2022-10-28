@@ -1,12 +1,8 @@
 ---
-title: Tools
 hide:
     - toc
     - footer
     - navigation
 ---
 
-
 #
-
-::: skyant.tools
