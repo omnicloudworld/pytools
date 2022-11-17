@@ -19,8 +19,10 @@ LICENSE: MIT
 
 PYTHON_REQ: '>=3.10'
 REQUIREMENTS:
-    -   google.auth
+    -   google-auth
     -   pyyaml
+    -   flask
+    -   python-jose
 
 CLASSIFIERS:
     -   'Programming Language :: Python :: 3.10'

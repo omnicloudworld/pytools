@@ -12,7 +12,7 @@ import yaml
 
 
 @duty
-def bsd(ctx):
+def docs(ctx):
     '''
     Build & Serv the Documentation.
     '''
@@ -23,7 +23,7 @@ def bsd(ctx):
     )
 
     ctx.run(
-        'mkdocs serve --config-file .mkdocs.yml --dev-addr 0.0.0.0:8008',
+        '. .venv/dev/bin/activate && mkdocs serve --config-file .mkdocs.yml --dev-addr 0.0.0.0:8008',
         title='Serving on http://localhost:8008/'
     )
 
@@ -74,12 +74,30 @@ def gauth(ctx):
 
 
 @duty
-def devinit(ctx):
+def init(ctx, venv: str = 'dev'):
     '''
     Initialize environment
     '''
 
-    ctx.run('python3.10 -m venv .venv/dev', title='Make venv')
-    ctx.run('. .venv/dev/bin/activate', title='Activate')
+    ctx.run(f'python3.10 -m venv .venv/{venv}', title='Make venv')
+    ctx.run(f'. .venv/{venv}/bin/activate', title='Activate')
     ctx.run('pip3 install --upgrade pip', title='Upgrade pip')
-    ctx.run('pip3 install --upgrade -r .venv/dev.pip', title='Installing requirements')
+    ctx.run('pip3 install --upgrade -r .venv/{venv}.req', title='Installing requirements')
+
+
+@duty
+def activate(ctx, venv: str = 'dev'):
+    '''
+    Avtivate environment in ./.venv folder
+    '''
+
+    ctx.run(f'. .venv/{venv}/bin/activate', title='Activating')
+
+
+@duty
+def freeze(ctx, venv: str = 'dev'):
+    '''
+    Freeze environment to .venv/{name}.req file
+    '''
+
+    ctx.run(f'pip3 freeze > .venv/{venv}.req', title='Freeze environment')

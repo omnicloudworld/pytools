@@ -2,6 +2,7 @@ mkdocs-material
 mkdocs
 mkdocstrings[python]
 mkdocs-section-index
+mkdocs-glightbox
 
 pyyaml
 pyyaml_env_tag

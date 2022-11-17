@@ -1,11 +1,5 @@
----
-hide:
-    - toc
-    - footer
-    - navigation
----
 
 
-#
+# skyant.tools.auth
 
 ::: skyant.tools.auth
