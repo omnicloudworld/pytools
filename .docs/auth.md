@@ -1,0 +1,7 @@
+---
+title: AUTH
+hide:
+    - navigation
+---
+
+#

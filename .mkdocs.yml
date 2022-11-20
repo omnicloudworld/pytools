@@ -2,11 +2,15 @@
 nav:
 
     - 'HOME': index.md
-    - 'QUICK START': start.md
+    - 'AUTH': auth.md
+    - 'DUTY': duty.md
+    - 'CRYPTO': crypto.md
 
     - 'REFERENCES':
         - references/index.md
         - 'AUTH': references/auth.md
+        - 'CRYPTO': references/crypto.md
+        - 'DUTY': references/duty.md
 
 
 site_name: skyant.tools

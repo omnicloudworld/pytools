@@ -1,4 +1,4 @@
 '''
 '''
 
-from ._gcp import GCP
+from ._gcp import HeaderGCP
