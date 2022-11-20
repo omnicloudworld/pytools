@@ -18,31 +18,8 @@ class HeaderGCP():
     The class provides features to working with authentication systems that work in GCP for
     access to HTTP endpoints.
 
-    The GCP contains two HTTP authentication systems:
-
-    __- on the instance security level (Identity Access Manager)__
-
-    _This system controls traffic directly on endpoints (Cloud Run, Cloud Functions, etc).
-    In the case when your instance required authentication HTTP requests will be passed
-    to instance only if it contains an "authentication" header with Bearer token. The
-    authentication header should approve that request's sender has a role Invoker._
-
-    __- on the load balancing system (Identity Aware Proxy)__
-
-    _IAP provides feature for pass or block traffic to one or more endpoints base on OAuth2.
-    IAP can use two subsystems as an identity provider:_
-
-      - Identity Access Manager
-
-        _in this case authenticated user can become only Google account, but IAM can provides
-        permission to group (through Google Groups for business)_
-
-      - Identity Platform
-
-        _in this case authentication will done through identity provider such as Facebook,
-        Twitter, Google, etc, but you cant use Google Groups for business_
-
-    The HeaderGCP work with Identity Access Manager on both system only now.
+    The HeaderGCP work with Identity Access Manager on Identity Aware Proxy and/or on
+    direct access to cloud instance (Cloud Run / Functions / etc).
 
     Args:
         key: The path to a service_account key in JSON format
@@ -68,9 +45,9 @@ class HeaderGCP():
 
         self.request = transport_req.Request()
 
-    def get_bearer(self, scope: str) -> str:
+    def make_bearer(self, scope: str) -> str:
         '''
-        _summary_
+        Build a value for authentication header which contains Bearer token.
 
         Args:
             scope: Where the provided token will be act. For Cloud Run/Functions... it is a
@@ -111,7 +88,7 @@ class HeaderGCP():
             _description_
         '''
 
-        token = self.get_bearer(scope)
+        token = self.make_bearer(scope)
 
         header = current or {}
         if ('Authorization' in header or 'authorization' in header) and not replace:

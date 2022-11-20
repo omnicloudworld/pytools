@@ -8,9 +8,9 @@ nav:
 
     - 'REFERENCES':
         - references/index.md
-        - 'AUTH': references/auth.md
-        - 'CRYPTO': references/crypto.md
-        - 'DUTY': references/duty.md
+        - 'auth': references/auth.md
+        - 'crypto': references/crypto.md
+        - 'duty': references/duty.md
 
 
 site_name: skyant.tools
