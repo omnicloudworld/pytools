@@ -33,6 +33,7 @@
         "gcloud",
         "gdrive",
         "glightbox",
+        "hgcp",
         "inlinehilite",
         "ipykernel",
         "isort",

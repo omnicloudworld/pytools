@@ -60,6 +60,98 @@ sa_auth = HeaderGCP('path_to_service_account_key.json')
 
 ## Making headers
 
+The instance of ```skyant.tools.auth.HeaderGCP``` contains two methods for assist you to created
+a HTTP headers.
+
+### make_bearer
+
+This method makes a bearer header for your service account & provided scope.
+
+=== "IAM with direct access"
+
+    ```py linenums='1' title='make bearer'
+    from skyant.tools.auth import HeaderGCP
+
+    hgcp = HeaderGCP('key.json')
+
+    token = hgcp.make_bearer('https://my.cloud-google-host.com')
+
+    request_headers = {
+        'authentication': token
+    }
+    ```
+
+=== "IAM behind Identity Aware Proxy & Load Balancer"
+
+    ```python linenums='1' title='make bearer'
+    from skyant.tools.auth import HeaderGCP
+
+    hgcp = HeaderGCP('key.json')
+
+    token = hgcp.make_bearer('user_id') # (1)!
+
+    request_headers = {
+        'authentication': token
+    }
+    ```
+
+    1. The user_id is __NOT email__. Please looking for user_id in service account key.
+
+
+In this case the variable "token" will contains token in format "Bearer {token}".  The "authentication"
+header is sufficient for access to Google Cloud instances such as Cloud Run if your service 
+account has a role "* Invoker".
+
+### fill_header
+
+For more easy making a HTTP header you can use method ```fill_header```. This method not only makes
+a token but insert it into a current headers.
+
+=== "code"
+    ```py linenums='1' title='fill header'
+    from skyant.tools.auth import HeaderGCP
+
+    request_headers = {
+        'Content-Type': 'applications/json'
+    }
+
+    hgcp = HeaderGCP('key.json')
+
+    request_headers = hgcp.fill_header('https://my.cloud-google-host.com')
+
+    request_headers
+    ```
+
+=== "result"
+
+    ```py linenums='1' title='new header'
+    {
+        'Content-Type': 'applications/json',
+        'Authentication': 'Bearer aowiejfow34ituow4utowuotuwgt52g'
+    }
+    ```
+
+!!!info
+    The method ```fill_header``` overwrites the Authentication header if it exist. For saving
+    original header set argument ```replace``` to ```True```.
+
+    ```py linenums='1' title='not replace'
+    request_headers = hgcp.fill_header('https://my.cloud-google-host.com', replace=False)
+    ```
+
+!!!warning
+    If you use domain alias, your alias work ONLY as host name. The scope argument always must be
+    set as instance URL from Google Cloud Console.
+
 
 ## Read headers
+
+If your instance was got a request then requested user was been authenticated by Google Cloud Platform.
+Despite this in some cases you needs to know who send request.
+
+In this case you can read the headers by read_auth class method that returns full & decrypted
+related header [^1] or get_user which returns only email as a string.
+{ .annotate }
+
+[^1]: Dependent on traffic got to you from the header will be different. The read_auth analyses all variants.
 
