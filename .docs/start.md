@@ -1,8 +1,0 @@
----
-hide:
-    - toc
-    - footer
-    - navigation
----
-
-#

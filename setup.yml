@@ -1,8 +1,11 @@
 NAMESPACE: skyant.tools
 MODULES:
     -   skyant.tools
+    -   skyant.tools.auth
+    -   skyant.tools.crypto
+    -   skyant.tools.duty
 
-VERSION: 1.0
+VERSION: 1.1
 
 DESCR: Tools for a working with GCP.
 KEYWORDS: pydantic, api, rest, GCP
@@ -19,8 +22,12 @@ LICENSE: MIT
 
 PYTHON_REQ: '>=3.10'
 REQUIREMENTS:
-    -   google.auth
+    -   google-auth
     -   pyyaml
+    -   flask
+    -   python-jose
+    -   requests
+    -   duty
 
 CLASSIFIERS:
     -   'Programming Language :: Python :: 3.10'

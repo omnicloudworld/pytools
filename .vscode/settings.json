@@ -25,6 +25,25 @@
             ]
         }
     },
-    "terminal.integrated.defaultProfile.linux": "local"
+    "terminal.integrated.defaultProfile.linux": "local",
+    "cSpell.words": [
+        "Decryptor",
+        "DESCR",
+        "gcip",
+        "gcloud",
+        "gdrive",
+        "glightbox",
+        "hgcp",
+        "inlinehilite",
+        "ipykernel",
+        "isort",
+        "linenums",
+        "mkdocs",
+        "mkdocstrings",
+        "noqa",
+        "pylint",
+        "pypi",
+        "venv"
+    ]
 
 }

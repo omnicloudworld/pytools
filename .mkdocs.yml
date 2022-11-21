@@ -2,11 +2,15 @@
 nav:
 
     - 'HOME': index.md
-    - 'QUICK START': start.md
+    - 'AUTH': auth.md
+    - 'DUTY': duty.md
+    - 'CRYPTO': crypto.md
 
     - 'REFERENCES':
         - references/index.md
-        - 'AUTH': references/auth.md
+        - 'auth': references/auth.md
+        - 'crypto': references/crypto.md
+        - 'duty': references/duty.md
 
 
 site_name: skyant.tools
@@ -35,7 +39,8 @@ theme:
         - search.highlight
         - search.suggest
         - navigation.tabs
-        - navigation.tabs.sticky
+        - content.code.annotate
+        - content.tabs.link
 
 
 copyright: Copyright &copy; 2020 Iurii Tarasenko
@@ -71,8 +76,25 @@ plugins:
                 options:
                     show_source: true
                     show_root_full_path: false
-                    show_root_toc_entry: true
+                    show_root_toc_entry: false
                     show_bases: false
                     show_category_heading: false
     - search
     - section-index
+    - glightbox
+
+
+markdown_extensions:
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - admonition
+    - pymdownx.details
+    - footnotes
+    - attr_list
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - md_in_html
+

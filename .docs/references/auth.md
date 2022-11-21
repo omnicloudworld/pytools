@@ -1,11 +1,6 @@
----
-hide:
-    - toc
-    - footer
-    - navigation
----
 
 
-#
+# skyant.tools.auth
 
-::: skyant.tools.auth
+## HeaderGCP
+::: skyant.tools.auth.HeaderGCP
