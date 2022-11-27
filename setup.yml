@@ -5,7 +5,8 @@ MODULES:
     -   skyant.tools.crypto
     -   skyant.tools.duty
 
-VERSION: 1.1
+VERSION: 0.0
+MINOR: 1
 
 DESCR: Tools for a working with GCP.
 KEYWORDS: pydantic, api, rest, GCP

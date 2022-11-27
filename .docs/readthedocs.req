@@ -2,6 +2,7 @@ mkdocs-material
 mkdocs
 mkdocstrings[python]
 mkdocs-section-index
+mkdocs-include-markdown-plugin
 mkdocs-glightbox
 
 pyyaml

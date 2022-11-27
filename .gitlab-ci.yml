@@ -13,8 +13,6 @@ build-job:
     environment:
         name:   GitLab
         action: prepare
-    variables:
-        include: pypi/vars-ci.yml
     script:
         -   if [[ "$CI_COMMIT_REF_NAME" == "main" ]]; then export BUILD_SUFFIX=""; else export BUILD_SUFFIX="dev"; fi;
         -   pip3 install --upgrade pip wheel build pyyaml markdown;
@@ -59,5 +57,4 @@ deploy2pypi:
             --repository-url https://upload.pypi.org/legacy/ 
             --username __token__ 
             --password $PYPIORG_TOKEN dist/*
-
 
