@@ -6,7 +6,7 @@ MODULES:
     -   skyant.tools.duty
 
 VERSION: 0.0
-MINOR: 1
+MINOR: 2
 
 DESCR: Tools for a working with GCP.
 KEYWORDS: pydantic, api, rest, GCP
