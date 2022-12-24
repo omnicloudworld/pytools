@@ -9,7 +9,6 @@ from duty import duty
 
 __all__ = [
     'init',
-    'activate',
     'freeze'
 ]
 
