@@ -9,7 +9,12 @@ hide:
 
 #
 
-__This package contains a helpers for fast & easy building a micro-applications.__
+{%
+   include-markdown "../README.md"
+   heading-offset=1
+%}
+
+<br/>
 
 For installing the package please run
 

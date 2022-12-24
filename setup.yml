@@ -11,10 +11,8 @@ MINOR: 1
 DESCR: Tools for a working with GCP.
 KEYWORDS: pydantic, api, rest, GCP
 
-HOME: https://skyant.dev/projects/tools
-DONATE: https://buymeacoffee.com/skyantdev
-NEWS: https://www.linkedin.com/company/skyantdev
-TALK: https://groups.google.com/a/skyant.dev/g/community?label=tools
+HOME: https://skyant.dev
+DOCUMENTATION: https://docs.skyant.dev/projects/tools
 
 AUTHOR: Iurii Tarasenko
 EMAIL: info@skyant.dev

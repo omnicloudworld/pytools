@@ -24,23 +24,9 @@ def init(ctx, name: str = 'dev'):
     '''
 
     ctx.run(f'python3.10 -m venv .venv/{name}', title='Make venv')
-    ctx.run(f'. .venv/{name}/bin/activate', title='Activate')
-    ctx.run('pip3 install --upgrade pip', title='Upgrade pip')
-    ctx.run('pip3 install --upgrade wheel pylint isort ipykernel', title='Base install')
-    ctx.run(f'pip3 install --upgrade -r .venv/{name}.req', title='Installing requirements')
-    ctx.run(f'pip3 freeze > .venv/{name}.req', title=f'Upgrade {name}.req file')
-
-
-@duty
-def activate(ctx, name: str = 'dev'):
-    '''
-    Activate environment from .venv/{name}. Default name=dev. You can use ```duty activate name```
-
-    Args:
-        venv: Name of your virtual environment.
-    '''
-
-    ctx.run(f'. .venv/{name}/bin/activate', title='Activating')
+    ctx.run(f'. .venv/{name}/bin/activate && pip3 install --upgrade pip', title='Upgrade pip')
+    ctx.run(f'. .venv/{name}/bin/activate && pip3 install --upgrade wheel pylint isort ipykernel', title='Base install')
+    ctx.run(f'. .venv/{name}/bin/activate && pip3 install --upgrade -r .venv/{name}.req', title='Installing requirements')
 
 
 @duty
